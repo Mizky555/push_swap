@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsirirak <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tsirirak <Marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 17:32:33 by tsirirak          #+#    #+#             */
-/*   Updated: 2022/04/24 02:15:07 by tsirirak         ###   ########.fr       */
+/*   Updated: 2022/12/31 02:07:39 by tsirirak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr(  void *s, int c, size_t n)
 {
 	unsigned char	*ptr;
 	int				i;

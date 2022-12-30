@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsirirak <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tsirirak <Marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 23:53:51 by tsirirak          #+#    #+#             */
-/*   Updated: 2022/04/24 01:52:57 by tsirirak         ###   ########.fr       */
+/*   Updated: 2022/12/31 02:11:02 by tsirirak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_leen(char const *s, char c, int check)
+int	ft_leen(char   *s, char c, int check)
 {
 	int	len_i;
 	int	j;
@@ -38,7 +38,7 @@ int	ft_leen(char const *s, char c, int check)
 	return (len_i);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char   *s, char c)
 {
 	char	**str;
 	int		j;

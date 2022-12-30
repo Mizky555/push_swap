@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsirirak <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tsirirak <Marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 02:03:23 by tsirirak          #+#    #+#             */
-/*   Updated: 2022/04/24 02:03:42 by tsirirak         ###   ########.fr       */
+/*   Updated: 2022/12/31 02:07:39 by tsirirak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	start(char const *s1, char const *set)
+size_t	start(char   *s1, char   *set)
 {
 	size_t	i_s1_start;
 	size_t	i_set;
@@ -32,7 +32,7 @@ size_t	start(char const *s1, char const *set)
 	return (i_s1_start);
 }
 
-size_t	end(char const *s1, char const *set)
+size_t	end(char   *s1, char   *set)
 {
 	size_t	i_set;
 	size_t	i_s1_end;
@@ -57,7 +57,7 @@ size_t	end(char const *s1, char const *set)
 	return (i_s1_end);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char   *s1, char   *set)
 {
 	size_t	i_s1_start;
 	size_t	i_s1_end;
@@ -73,7 +73,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		str = malloc(sizeof(char) * 1);
 		str[0] = '\0';
 		return (str);
-	}	
+	}
 	i_s1_end = end(s1, set);
 	i = i_s1_start;
 	i_set = 0;
