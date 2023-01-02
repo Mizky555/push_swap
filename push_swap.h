@@ -6,7 +6,7 @@
 /*   By: tsirirak <Marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 20:41:58 by tsirirak          #+#    #+#             */
-/*   Updated: 2022/12/31 02:33:03 by tsirirak         ###   ########.fr       */
+/*   Updated: 2023/01/03 02:59:53 by tsirirak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,24 @@
 # include <stdio.h>
 # include "./libft/libft.h"
 
-typedef struct s_ps
+typedef struct s_list
 {
-	int	*num;
-} t_ps;
+	int	i;
+	struct s_list *link;
+} t_list;
 
-typedef struct s_linkedlist
+typedef struct s_main
 {
-	int	*num;
-} t_ll;
+	char ***str;
+	t_list *a;
+	t_list *b;
+} t_main;
 
-void	check_type(t_ps *s,char **gv);
+void	create(int gc, char **gv, t_main *m);
+t_list	*first_linkedlist(int i);
+void	c(t_main *m);
+void	next_linkedlist(int i, t_main *h);
+// void	check_type(t_ps *s,char **gv);
+
 
 #endif

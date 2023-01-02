@@ -6,7 +6,7 @@
 /*   By: tsirirak <Marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 00:33:44 by tsirirak          #+#    #+#             */
-/*   Updated: 2022/12/31 02:30:02 by tsirirak         ###   ########.fr       */
+/*   Updated: 2023/01/03 03:00:23 by tsirirak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,35 +63,92 @@
 int	main(int gc, char	**gv) // ./a.out 3 "1 3 23" 5
 {
 
-	char ***s;
-	int	d1;
-	int	d2;
-	int	d3;
+	t_list *l;
+	t_main	m;
+	int	i;
+	int	j;
 
-	s = (char ***)malloc(sizeof(char **) * (gc));
-	if (s == 0)
-		return (0);
-	d3 = 0;
-	gv++;
-	while (d3 < gc - 1)
+	i = 0;
+	create(gc, gv, &m);
+	while (m.str[i])
 	{
-		s[d3] = ft_split(gv[d3], ' ');
-		d3++;
-	}
-	s[d3] = NULL;
-	d3 = 0;
-	d2 = 0;
-	while (s[d3])
-	{
-		d2 = 0;
-		while (s[d3][d2])
+		j = 0;
+		while (m.str[i][j])
 		{
-			printf("[%d][%d] = %s\n",d3,d2,s[d3][d2]);
-			d2++;
+			printf("[%d][%d] = %s\n", i, j, m.str[i][j]);
+			j++;
 		}
-		d3++;
+		i++;
 	}
+	c(&m);
+	printf("%d\n",m.a->i);
+	printf("%d\n",m.a->link->i);
+	return (0);
+}
 
+void	create(int gc, char **gv, t_main *m)
+{
+	int	i;
 
-	printf("ddd");
+	i = 0;
+	m->str = (char ***)malloc(sizeof(char **) * (gc));
+	if (!m->str)
+		return ;
+	gv++;
+	while (i < gc - 1)
+	{
+		m->str[i] = ft_split(gv[i], ' ');
+		i++;
+	}
+	m->str[i] = NULL;
+}
+
+t_list	*first_linkedlist(int i)//ตัวแรก
+{
+	t_list	*h;
+
+	h = (t_list *)malloc(sizeof(t_list));
+	h->i = i;
+	h->link = NULL;
+	return (h);
+}
+
+void	next_linkedlist(int i, t_main *h)//ตัวถัดๆไป int i คือค่าตัวเลขจาก atoi *h คือค่าของตัวแรก
+{
+	t_list	*p;
+
+	p = (t_list *)malloc(sizeof(t_list));
+	p->link = NULL;
+	p->i = i;
+	// while (temp != NULL)
+	// {
+	// 	temp = temp->link;
+	// }
+	printf("p = %p\n",&h->a->link);
+	h->a->link = p;
+}
+
+void	c(t_main *m)
+{
+	int	 i;
+	int	j;
+
+	i = 0;
+	while (m->str[i])
+	{
+		j = 0;
+		while (m->str[i][j])
+		{
+			if	(m->a == NULL)
+			{
+				m->a = first_linkedlist(ft_atoi(m->str[i][j]));
+			}
+			else
+			{
+				next_linkedlist(ft_atoi(m->str[i][j]),m);
+			}
+			j++;
+		}
+		i++;
+	}
 }
