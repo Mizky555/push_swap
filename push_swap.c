@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsirirak <Marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tsirirak <tsirirak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 00:33:44 by tsirirak          #+#    #+#             */
-/*   Updated: 2023/01/03 03:00:23 by tsirirak         ###   ########.fr       */
+/*   Updated: 2023/01/29 01:52:50 by tsirirak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,18 +64,26 @@ int	main(int gc, char	**gv) // ./a.out 3 "1 3 23" 5
 {
 
 	t_list *l;
-	t_main	m;
+	t_main	m; //
+	int	k;
 	int	i;
 	int	j;
 
 	i = 0;
+	if (gc <= 2)
+		printf("Error gc <= 2\n");
 	create(gc, gv, &m);
 	while (m.str[i])
 	{
 		j = 0;
 		while (m.str[i][j])
 		{
-			printf("[%d][%d] = %s\n", i, j, m.str[i][j]);
+			k = 0;
+			while (m.str[i][j][k])
+			{
+				printf("argv[%d] = %s\n", i, m.str[i]);
+				k++;
+			}
 			j++;
 		}
 		i++;
@@ -120,11 +128,10 @@ void	next_linkedlist(int i, t_main *h)//ตัวถัดๆไป int i คื
 	p = (t_list *)malloc(sizeof(t_list));
 	p->link = NULL;
 	p->i = i;
-	// while (temp != NULL)
-	// {
-	// 	temp = temp->link;
-	// }
-	printf("p = %p\n",&h->a->link);
+	while (h->a->link != NULL)
+	{
+		h->a = h->a->link;
+	}
 	h->a->link = p;
 }
 
@@ -140,13 +147,9 @@ void	c(t_main *m)
 		while (m->str[i][j])
 		{
 			if	(m->a == NULL)
-			{
 				m->a = first_linkedlist(ft_atoi(m->str[i][j]));
-			}
 			else
-			{
 				next_linkedlist(ft_atoi(m->str[i][j]),m);
-			}
 			j++;
 		}
 		i++;

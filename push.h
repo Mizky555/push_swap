@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsirirak <tsirirak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 20:41:58 by tsirirak          #+#    #+#             */
-/*   Updated: 2023/01/28 16:16:47 by tsirirak         ###   ########.fr       */
+/*   Created: 2023/01/28 21:46:55 by tsirirak          #+#    #+#             */
+/*   Updated: 2023/01/29 01:27:31 by tsirirak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,30 +18,17 @@
 # include <stdio.h>
 # include "./libft/libft.h"
 
-typedef struct s_list
+typedef struct s_link
 {
-	int	i;
-	struct s_list *link;
-} t_list;
+	int	num;
+	struct s_link *link;
+} t_link;
 
 typedef struct s_main
 {
-	char ***str;
-	t_list *a;
-	t_list *b;
+	char	***num_str;
+	t_link *link_a;
+	t_link *link_b;
 } t_main;
-
-typedef struct node //ชื่อเต็ม struct node
-{
-	int value; //1.ค่า
-	struct node *link; //2.link
-} NODE;
-
-void	create(int gc, char **gv, t_main *m);
-t_list	*first_linkedlist(int i);
-void	c(t_main *m);
-void	next_linkedlist(int i, t_main *h);
-// void	check_type(t_ps *s,char **gv);
-
 
 #endif
