@@ -6,7 +6,7 @@
 /*   By: tsirirak <tsirirak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 20:41:58 by tsirirak          #+#    #+#             */
-/*   Updated: 2023/01/28 16:16:47 by tsirirak         ###   ########.fr       */
+/*   Updated: 2023/01/29 20:33:15 by tsirirak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 
 typedef struct s_list
 {
-	int	i;
-	struct s_list *link;
+	int	num;
+	struct s_list *next;
 } t_list;
 
 typedef struct s_main
