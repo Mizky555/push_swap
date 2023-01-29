@@ -6,7 +6,7 @@
 /*   By: tsirirak <tsirirak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 21:46:55 by tsirirak          #+#    #+#             */
-/*   Updated: 2023/01/29 17:51:43 by tsirirak         ###   ########.fr       */
+/*   Updated: 2023/01/29 23:17:52 by tsirirak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 typedef struct s_link
 {
-	int	num;
+	int	value;
 	struct s_link *link;
 } t_link;
 
