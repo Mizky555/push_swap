@@ -6,7 +6,7 @@
 /*   By: tsirirak <tsirirak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 21:46:55 by tsirirak          #+#    #+#             */
-/*   Updated: 2023/01/29 23:17:52 by tsirirak         ###   ########.fr       */
+/*   Updated: 2023/02/05 16:47:55 by tsirirak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,20 @@
 typedef struct s_link
 {
 	int	value;
-	struct s_link *link;
+	struct	s_link *link;
 } t_link;
 
-typedef struct s_main
-{
-	char	***num_str;
-	t_link *link_a;
-	t_link *link_b;
-} t_main;
+// typedef struct s_link
+// {
+// 	int	value;
+// 	struct s_link *link;
+// } t_link;
+
+// typedef struct s_main
+// {
+// 	char	***num_str;
+// 	t_link *link_a;
+// 	t_link *link_b;
+// } t_main;
 
 #endif
