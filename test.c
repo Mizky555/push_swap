@@ -2,9 +2,34 @@
 #include <stdlib.h>
 # include "./libft/libft.h"
 
+
+int	check_digit(char *str)
+{
+	int	i;
+	int	a;
+	int	num;
+
+	i = 0;
+	a = 1;
+	num = 0;
+	if (str[i] == '-')
+	{
+		a *= -1;
+		i++;
+	}
+	while (str[i])
+	{
+		if (str[i] <= '0' || str[i] >= '9')
+			return (0);
+		num = num * 10 + (str[i] - '0');
+		i++;
+	}
+	return (num * a);
+}
+
 int main()
 {
-    printf("test atoi = %d\n",ft_atoi("+030"));
+    printf("test split = %d\n",check_digit("-3"));
 }
 
 

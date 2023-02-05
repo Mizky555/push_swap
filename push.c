@@ -6,14 +6,32 @@
 /*   By: tsirirak <tsirirak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 21:46:06 by tsirirak          #+#    #+#             */
-/*   Updated: 2023/02/05 17:41:37 by tsirirak         ###   ########.fr       */
+/*   Updated: 2023/02/05 22:56:43 by tsirirak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "push.h"
 
-int	check_atoi(  char *str)
+t_link *ft_new_box(int num)
+{
+	t_link *new;
+	
+	new = (t_link *)malloc(sizeof(t_link));
+	new->value = num;
+	new->link = NULL;
+	return (new);
+}
+
+// void	ft_addto_stacka(t_link *a, t_link *new)
+// {
+// 	t_link	*tmp;
+	
+// 	if ()
+// }
+
+
+int	check_digit(char *str)
 {
 	int	i;
 	int	a;
@@ -22,34 +40,22 @@ int	check_atoi(  char *str)
 	i = 0;
 	a = 1;
 	num = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
 	if (str[i] == '-')
-		a *= -1;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
 	{
+		a *= -1;
+		i++;
+	}
+	while (str[i])
+	{
+		// printf("%c\n", str[i]);
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
 		num = num * 10 + (str[i] - '0');
 		i++;
 	}
-	return (num * a);
+	return (1);
 }
 
-t_link *ft_new_box(int num)
-{
-	t_link *new;
-	
-	new = (t_link *)mallo(sizeof(t_link));
-	new->value = num;
-	new->link = NULL;
-	return (new);
-}
-
-int	check_digit(char *str)
-{
-	
-}
 
 t_link *sprit(int argc, char **argv)
 {
@@ -61,23 +67,29 @@ t_link *sprit(int argc, char **argv)
 
 	i = 0;
 	a = NULL;
-	while (argc > i)
+	while (i < argc)
 	{
 		j = 0;
-		str = ft_split(argv[i], ' ');
-		while (str[i])
+		str = ft_split(argv[i + 1], ' ');
+		while (str[j])
 		{
-			if (check_digit(str[i]) == 0)
+			// printf("str = %s\n", str[j]);
+			// printf("Result str = %d\n", check_digit(str[j]));
+			if (check_digit(str[j]) == 0)
 			{
-				pritnf("check_digit\n");
-				return (0);
+				printf("check_digit\n");
+				exit (1);
 			}
-			new = ft_new_box(ft_atoi(av[j]));
-			ft_addto_stack();
+			// new = ft_new_box(ft_atoi(str[j]));
+			// printf("test\n");
+			// ft_addto_stacka(&a, new);
+			printf("i = %d j = %d\n", i, j);
 			j++;
 		}
+		str[j] = NULL;
 		i++;
 	}
+	return (a);
 }
 
 
