@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsirirak <tsirirak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tsirirak <mavin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 21:46:06 by tsirirak          #+#    #+#             */
-/*   Updated: 2023/02/05 22:56:43 by tsirirak         ###   ########.fr       */
+/*   Updated: 2023/02/09 01:15:07 by tsirirak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,25 @@ t_link *ft_new_box(int num)
 	return (new);
 }
 
-// void	ft_addto_stacka(t_link *a, t_link *new)
-// {
-// 	t_link	*tmp;
-	
-// 	if ()
-// }
+void	ft_add_tail(t_link **mom, t_link *son) //มาจาก libftbonus ของ bsirikum
+{
+	t_link	*tmp;
+
+	if (mom != NULL && son != NULL)
+	{
+		if (*mom == NULL)
+			*mom = son;
+		else if (*mom != NULL)
+		{
+			tmp = *mom;
+			while (tmp && tmp->link != NULL)
+			{
+				tmp = tmp->link;
+			}
+			tmp->link = son;
+		}
+	}	
+}
 
 
 int	check_digit(char *str)
@@ -47,7 +60,6 @@ int	check_digit(char *str)
 	}
 	while (str[i])
 	{
-		// printf("%c\n", str[i]);
 		if (str[i] < '0' || str[i] > '9')
 			return (0);
 		num = num * 10 + (str[i] - '0');
@@ -59,37 +71,39 @@ int	check_digit(char *str)
 
 t_link *sprit(int argc, char **argv)
 {
-	t_link	*a;
-	t_link	*new;
+	t_link	*first;
+	t_link	*tail;
 	int i;
 	int j;
 	char **str;
 
 	i = 0;
-	a = NULL;
-	while (i < argc)
+	first = NULL;
+	while (i < argc && argv[i + 1] != NULL)
 	{
 		j = 0;
 		str = ft_split(argv[i + 1], ' ');
 		while (str[j])
 		{
-			// printf("str = %s\n", str[j]);
-			// printf("Result str = %d\n", check_digit(str[j]));
 			if (check_digit(str[j]) == 0)
 			{
 				printf("check_digit\n");
 				exit (1);
 			}
-			// new = ft_new_box(ft_atoi(str[j]));
-			// printf("test\n");
-			// ft_addto_stacka(&a, new);
-			printf("i = %d j = %d\n", i, j);
+			tail = ft_new_box(ft_atoi(str[j]));
+			ft_add_tail(&first, tail);
 			j++;
 		}
-		str[j] = NULL;
+		j = 0;
+		while (str[j])
+		{
+			free(str[j++]);
+		}
+		free(str);
 		i++;
 	}
-	return (a);
+	printf("dddd\n");
+	return (first);
 }
 
 
@@ -103,6 +117,18 @@ int main(int argc, char **argv)
 		return (0);
 	}
 	a = sprit(argc, argv);
+	// while (a != NULL)
+	// {
+	// 	printf("%d\n",a->value);
+	// 	a = a->link;
+	// }
+	t_link *tmp;
+	while (a)
+	{
+		tmp = a;
+		a = a->link;
+		free(tmp);
+	}
 }
 
 
