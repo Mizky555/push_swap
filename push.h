@@ -6,7 +6,7 @@
 /*   By: tsirirak <tsirirak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 21:46:55 by tsirirak          #+#    #+#             */
-/*   Updated: 2023/02/05 16:47:55 by tsirirak         ###   ########.fr       */
+/*   Updated: 2023/02/12 21:11:55 by tsirirak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ typedef struct s_link
 	struct	s_link *link;
 } t_link;
 
+
+t_link *ft_new_box(int num);
+void	ft_add_tail(t_link **mom, t_link *son);
+
+int	check_digit(char *str);
+int	check_dididigit(t_link *a);
 // typedef struct s_link
 // {
 // 	int	value;

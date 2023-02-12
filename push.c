@@ -3,70 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsirirak <mavin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tsirirak <tsirirak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 21:46:06 by tsirirak          #+#    #+#             */
-/*   Updated: 2023/02/09 01:15:07 by tsirirak         ###   ########.fr       */
+/*   Updated: 2023/02/12 21:10:39 by tsirirak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "push.h"
 
-t_link *ft_new_box(int num)
-{
-	t_link *new;
-	
-	new = (t_link *)malloc(sizeof(t_link));
-	new->value = num;
-	new->link = NULL;
-	return (new);
-}
-
-void	ft_add_tail(t_link **mom, t_link *son) //มาจาก libftbonus ของ bsirikum
-{
-	t_link	*tmp;
-
-	if (mom != NULL && son != NULL)
-	{
-		if (*mom == NULL)
-			*mom = son;
-		else if (*mom != NULL)
-		{
-			tmp = *mom;
-			while (tmp && tmp->link != NULL)
-			{
-				tmp = tmp->link;
-			}
-			tmp->link = son;
-		}
-	}	
-}
-
-
-int	check_digit(char *str)
-{
-	int	i;
-	int	a;
-	int	num;
-
-	i = 0;
-	a = 1;
-	num = 0;
-	if (str[i] == '-')
-	{
-		a *= -1;
-		i++;
-	}
-	while (str[i])
-	{
-		if (str[i] < '0' || str[i] > '9')
-			return (0);
-		num = num * 10 + (str[i] - '0');
-		i++;
-	}
-	return (1);
-}
 
 
 t_link *sprit(int argc, char **argv)
@@ -102,7 +48,6 @@ t_link *sprit(int argc, char **argv)
 		free(str);
 		i++;
 	}
-	printf("dddd\n");
 	return (first);
 }
 
@@ -111,19 +56,24 @@ t_link *sprit(int argc, char **argv)
 int main(int argc, char **argv)
 {
 	t_link	*a;
+	t_link *tmp;
 	if (argc < 2)
 	{
 		printf("argc < 2");
 		return (0);
 	}
 	a = sprit(argc, argv);
+	if (check_dididigit(a) == 1)
+	{
+		printf("check_dididigit\n");
+		exit(1);
+	}
 	// while (a != NULL)
 	// {
 	// 	printf("%d\n",a->value);
 	// 	a = a->link;
 	// }
-	t_link *tmp;
-	while (a)
+	while (a) // a!=NULL
 	{
 		tmp = a;
 		a = a->link;
