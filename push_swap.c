@@ -1,157 +1,180 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsirirak <tsirirak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/31 00:33:44 by tsirirak          #+#    #+#             */
-/*   Updated: 2023/01/29 01:52:50 by tsirirak         ###   ########.fr       */
+/*   Created: 2023/01/28 21:46:06 by tsirirak          #+#    #+#             */
+/*   Updated: 2023/02/12 21:10:39 by tsirirak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "push_swap.h"
+#include "push.h"
 
-// int	main(int gc, char **gv)
-// {
-// 	char **str;
-// 	int i = 0;
 
-// 	if (gc == 2)
-// 	{
-// 		str = ft_split(gv[1], ' ');
-// 		while (str[i])
-// 		{
-// 			printf("[%d] : %c\n", i, str[i][0]);
-// 			i++;
-// 		}
-// 	}
-// }
 
-// int	main(int gc, char **gv)
-// {
-// 	char **str;
-// 	int	i_gv;
-// 	int	i;
-// 	int	j;
-
-// 	i_gv = 0;
-// 	if (gc < 2)
-// 		exit(1);
-// 		printf("d");
-// 	while (gv[i_gv])
-// 	{
-// 		i = 0;
-// 		str = ft_split(gv[i], ' ');
-// 		printf("gv[%d] = %s\n",i,gv[i]);
-// 		while (ft_strlen(str[i]))
-// 		{
-// 			// j = 0;
-// 			// while (ft_strlen(str[i][j]))
-// 			// {
-// 				if (ft_isdigit(str[i][j]) == 0)
-// 					printf("ft_iddigit");
-// 				// j++;
-// 			// }
-// 			i++;
-// 		}
-// 		i_gv++;
-// 	}
-// }
-
-int	main(int gc, char	**gv) // ./a.out 3 "1 3 23" 5
+t_link *sprit(int argc, char **argv)
 {
-
-	t_list *l;
-	t_main	m; //
-	int	k;
-	int	i;
-	int	j;
+	t_link	*first;
+	t_link	*tail;
+	int i;
+	int j;
+	char **str;
 
 	i = 0;
-	if (gc <= 2)
-		printf("Error gc <= 2\n");
-	create(gc, gv, &m);
-	while (m.str[i])
+	first = NULL;
+	while (i < argc && argv[i + 1] != NULL)
 	{
 		j = 0;
-		while (m.str[i][j])
+		str = ft_split(argv[i + 1], ' ');
+		while (str[j])
 		{
-			k = 0;
-			while (m.str[i][j][k])
+			if (check_digit(str[j]) == 0)
 			{
-				printf("argv[%d] = %s\n", i, m.str[i]);
-				k++;
+				printf("check_digit\n");
+				exit (1);
 			}
+			tail = ft_new_box(ft_atoi(str[j]));
+			ft_add_tail(&first, tail);
 			j++;
 		}
-		i++;
-	}
-	c(&m);
-	printf("%d\n",m.a->i);
-	printf("%d\n",m.a->link->i);
-	return (0);
-}
-
-void	create(int gc, char **gv, t_main *m)
-{
-	int	i;
-
-	i = 0;
-	m->str = (char ***)malloc(sizeof(char **) * (gc));
-	if (!m->str)
-		return ;
-	gv++;
-	while (i < gc - 1)
-	{
-		m->str[i] = ft_split(gv[i], ' ');
-		i++;
-	}
-	m->str[i] = NULL;
-}
-
-t_list	*first_linkedlist(int i)//ตัวแรก
-{
-	t_list	*h;
-
-	h = (t_list *)malloc(sizeof(t_list));
-	h->i = i;
-	h->link = NULL;
-	return (h);
-}
-
-void	next_linkedlist(int i, t_main *h)//ตัวถัดๆไป int i คือค่าตัวเลขจาก atoi *h คือค่าของตัวแรก
-{
-	t_list	*p;
-
-	p = (t_list *)malloc(sizeof(t_list));
-	p->link = NULL;
-	p->i = i;
-	while (h->a->link != NULL)
-	{
-		h->a = h->a->link;
-	}
-	h->a->link = p;
-}
-
-void	c(t_main *m)
-{
-	int	 i;
-	int	j;
-
-	i = 0;
-	while (m->str[i])
-	{
 		j = 0;
-		while (m->str[i][j])
+		while (str[j])
 		{
-			if	(m->a == NULL)
-				m->a = first_linkedlist(ft_atoi(m->str[i][j]));
-			else
-				next_linkedlist(ft_atoi(m->str[i][j]),m);
-			j++;
+			free(str[j++]);
 		}
+		free(str);
 		i++;
 	}
+	return (first);
 }
+
+
+
+int main(int argc, char **argv)
+{
+	t_link	*a;
+	t_link *tmp;
+	if (argc < 2)
+	{
+		printf("argc < 2");
+		return (0);
+	}
+	a = sprit(argc, argv);
+	if (check_dididigit(a) == 1)
+	{
+		printf("check_dididigit\n");
+		exit(1);
+	}
+	// while (a != NULL)
+	// {
+	// 	printf("%d\n",a->value);
+	// 	a = a->link;
+	// }
+	while (a) // a!=NULL
+	{
+		tmp = a;
+		a = a->link;
+		free(tmp);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+// void add_numtolinka(int num)
+// {
+//     t_link *new_num;
+//     t_link *tmp;
+//     t_main m;
+
+//     new_num = (t_link *)malloc(sizeof(t_link));
+//     new_num->value = num;
+//     new->link = NULL;
+//     while (m->link != NULL)
+//     {
+		
+//     }
+// }
+
+// t_main    *add_numtolinka_main(t_main *m)
+// {
+//     t_link  *link_a;
+//     int i;
+//     int j;
+
+//     i = 0;
+//     list_a = NULL;
+//     while (m->num_str[i])
+//     {
+//         j = 0;
+//         while (m->num_str[i][j])
+//         {
+//             if (m->num_str[i][j] == NULL)
+//                 m->num_str[i][j] = create_link(m);
+//             else
+//                 add_link_a_2(ft_atoi(m->num_str[i][j]));
+//             i++;
+//         }
+//         j++;
+//     }
+//     return (0);
+	
+//     // while (m->num_str[i])
+//     // {
+//     //     j = 0;
+//     //     printf("");
+//     //     while (m->num_str[i][j])
+//     //     {
+//     //         l = (t_link *)malloc(sizeof(t_link));
+//     //         m->link_a->num = ft_atoi(m->num_str[i][j]);
+//     //         printf("m->num_str = %d\n",m->link_a->num);
+//     //         l = l->link;
+//     //         j++;
+//     //     }
+//     //     i++;
+//     // }
+//     // return (m);
+// }
+
+
+
+// void    push_split(int argc, char **argv, t_main *m)//ยัดเข้า l->num_str
+// {
+//     int i;
+//     int j;
+
+//     i = 0;
+//     m->num_str = (char ***)malloc(sizeof(char **) * (argc));//จองพื้นที่
+//     while (i < argc)//argc = 5
+//     {
+//         m->num_str[i] = ft_split(argv[i], ' ');
+//         i++;
+//     }
+//     m->num_str[i] = NULL;
+//     add_link_a(m);
+// }
+
+
+
+// int main(int argc, char **argv)
+// {
+//     t_main  m;
+	
+//     if (argc <= 2)//เช็ค
+//     {
+//         printf("argc <= 2\n");
+//         exit(1);
+//     }
+
+//     push_split(argc, argv, &m);//ยัดเข้า l->num_str
+// }
