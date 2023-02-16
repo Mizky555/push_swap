@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsirirak <tsirirak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tsirirak <mavin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 21:46:55 by tsirirak          #+#    #+#             */
-/*   Updated: 2023/02/12 21:11:55 by tsirirak         ###   ########.fr       */
+/*   Updated: 2023/02/17 01:22:35 by tsirirak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 typedef struct s_link
 {
 	int	value;
+	int	rank;
+	int	count;//opallllllll
 	struct	s_link *link;
 } t_link;
 

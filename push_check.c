@@ -9,6 +9,7 @@ int	check_dididigit(t_link *num)
 	// 	a = a->link;
 	// }
     t_link *num_run;
+
 	while (num != NULL)
 	{
         num_run = num->link;
@@ -21,6 +22,7 @@ int	check_dididigit(t_link *num)
 
             }
             num_run = num_run->link;
+			num->count++;//oppalllll
 		}
         num = num->link;
 	}
