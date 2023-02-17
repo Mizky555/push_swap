@@ -6,7 +6,7 @@
 /*   By: tsirirak <mavin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 21:46:06 by tsirirak          #+#    #+#             */
-/*   Updated: 2023/02/17 01:22:24 by tsirirak         ###   ########.fr       */
+/*   Updated: 2023/02/17 21:24:57 by tsirirak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 
 
-t_link *sprit(int argc, char **argv)
+t_link *sprit(int argc, char **argv)//2
 {
 	t_link	*first;
 	t_link	*tail;
@@ -53,12 +53,12 @@ t_link *sprit(int argc, char **argv)
 
 
 
-int main(int argc, char **argv)
+int main(int argc, char **argv)//1
 {
 	t_link	*a;
 	t_link *tmp;
 	
-	a->count = 0;//opallllll
+	// a->count = 0;//opallllll
 	if (argc < 2)
 	{
 		printf("argc < 2");
@@ -70,11 +70,13 @@ int main(int argc, char **argv)
 		printf("check_dididigit\n");
 		exit(1);
 	}
+	ft_sort_rank(a);
 	// while (a != NULL)
 	// {
 	// 	printf("%d\n",a->value);
 	// 	a = a->link;
 	// }
+
 	while (a) // a!=NULL
 	{
 		tmp = a;

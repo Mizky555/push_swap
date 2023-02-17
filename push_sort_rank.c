@@ -1,7 +1,11 @@
-int ft_check_rank_min(t_list *num)
+#include <stdio.h>
+#include "push.h"
+
+
+int ft_check_rank_min(t_link *num)
 {
     int min;
-    t_list  *tmp;
+    t_link  *tmp;
 
     tmp = num;
     min = tmp->value;
@@ -9,24 +13,25 @@ int ft_check_rank_min(t_list *num)
     {
         if (tmp->value < min)
             min = tmp->value;
-        tmp = tmp->value;
+        tmp = tmp->link;
     }
     return (min);
 }
 
-void    ft_sort_rank(t_list *num)
+void    ft_sort_rank(t_link *num)
 {
     int min;
-    t_list  *tmp;
+    t_link  *tmp;
 
     min = ft_check_rank_min(num);
-    tmp = num;
-    while (tmp)
-    {
-        if (tmp->value == min)
-            tmp->rank = min
-        else
-            ft_check_rank_other(num);
-        tmp = tmp->link;
-    }
+    printf("min = %d\n",min);
+    // tmp = num;
+    // while (tmp)
+    // {
+    //     if (tmp->value == min)
+    //         tmp->rank = min;
+    //     else
+    //         ft_check_rank_other(num);
+    //     tmp = tmp->link;
+    // }
 }

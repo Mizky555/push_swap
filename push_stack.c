@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "push.h"
 
-t_link *ft_new_box(int num)
+t_link *ft_new_box(int num)//4
 {
 	t_link *new;
 
@@ -11,7 +11,7 @@ t_link *ft_new_box(int num)
 	return (new);
 }
 
-void	ft_add_tail(t_link **mom, t_link *son) //มาจาก libftbonus
+void	ft_add_tail(t_link **mom, t_link *son) //5 มาจาก libftbonus
 {
 	t_link	*tmp;
 

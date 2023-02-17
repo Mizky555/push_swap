@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "push.h"
 
-int	check_dididigit(t_link *num)
+int	check_dididigit(t_link *num)//6
 {
 	// while (a != NULL)
 	// {
@@ -9,7 +9,7 @@ int	check_dididigit(t_link *num)
 	// 	a = a->link;
 	// }
     t_link *num_run;
-
+	printf("ds\n");
 	while (num != NULL)
 	{
         num_run = num->link;
@@ -22,14 +22,15 @@ int	check_dididigit(t_link *num)
 
             }
             num_run = num_run->link;
-			num->count++;//oppalllll
+			// num->count++;//oppalllll
+			// printf("num->count%d\n",num->count);
 		}
         num = num->link;
 	}
 	return(0);
 }
 
-int	check_digit(char *str)
+int	check_digit(char *str)//3
 {
 	int	i;
 	int	a;
