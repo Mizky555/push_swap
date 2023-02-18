@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsirirak <mavin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tsirirak <tsirirak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 21:46:06 by tsirirak          #+#    #+#             */
-/*   Updated: 2023/02/17 21:24:57 by tsirirak         ###   ########.fr       */
+/*   Updated: 2023/02/18 16:31:31 by tsirirak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,18 +58,20 @@ int main(int argc, char **argv)//1
 	t_link	*a;
 	t_link *tmp;
 	
-	// a->count = 0;//opallllll
 	if (argc < 2)
 	{
 		printf("argc < 2");
 		return (0);
 	}
 	a = sprit(argc, argv);
+	a->count = 1;//opallllll
+	printf("a->count = %d\n", a->count);
 	if (check_dididigit(a) == 1)
 	{
 		printf("check_dididigit\n");
 		exit(1);
 	}
+	printf("a->count = %d\n",a->count);
 	ft_sort_rank(a);
 	// while (a != NULL)
 	// {
@@ -181,4 +183,5 @@ int main(int argc, char **argv)//1
 //     }
 
 //     push_split(argc, argv, &m);//ยัดเข้า l->num_str
+
 // }
