@@ -6,7 +6,7 @@
 /*   By: tsirirak <tsirirak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 21:46:06 by tsirirak          #+#    #+#             */
-/*   Updated: 2023/02/18 16:31:31 by tsirirak         ###   ########.fr       */
+/*   Updated: 2023/02/19 00:54:12 by tsirirak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,18 @@ int main(int argc, char **argv)//1
 	}
 	printf("a->count = %d\n",a->count);
 	ft_sort_rank(a);
-	// while (a != NULL)
-	// {
-	// 	printf("%d\n",a->value);
-	// 	a = a->link;
-	// }
-
+	tmp = a;
+	printf("--------\n");
+	while (tmp != NULL)
+	{
+		printf("rank = %d\n",tmp->rank);
+		tmp = tmp->link;
+	}
+	while (a != NULL)
+	{
+		printf("value = %d\n",a->value);
+		a = a->link;
+	}
 	while (a) // a!=NULL
 	{
 		tmp = a;
