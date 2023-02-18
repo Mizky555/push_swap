@@ -3,40 +3,54 @@
 
 int ft_rank_morethan_min(t_link *num, int min)//หาตัวที่น้อยลำดับถัดไป
 {
-    int		more;
-	t_link	*tmp;
+	int		morethan;
 
-	more = 0;
-	tmp = num;
-	while (tmp)
-	{
-		if (tmp->value > min)
-			more = tmp->value;
-		tmp = tmp->link;
-	}
+	morethan = ft_rank_morethan_min(num, 10);
 	while (num)
 	{
-		if (num->value > min && num->value < more)
-			more = num->value;
+		if (num->value > min && num->value < morethan)
+		{
+			morethan = num->value;
+		}
 		num = num->link;
 	}
-	return (more);
+	return (morethan);
+    // int		more;
+	// t_link	*tmp;
+
+	// more = 0;
+	// tmp = num;
+	// while (tmp)
+	// {
+	// 	if (tmp->value > min)
+	// 		more = tmp->value;
+	// 	tmp = tmp->link;
+	// }
+	// while (num)
+	// {
+	// 	if (num->value > min && num->value < more)
+	// 		more = num->value;
+	// 	num = num->link;
+	// }
+	// return (more);
 }
 
-int ft_rank_min(t_link *num)
+int ft_rank_minmax(t_link *num, int mode)
 {
-    int min;
+    int minmax;
     t_link  *tmp;
 
     tmp = num;
-    min = tmp->value;
+    minmax = tmp->value;
     while (tmp)
     {
-        if (tmp->value < min)
-            min = tmp->value;
+        if (tmp->value < minmax && mode == 0)
+            minmax = tmp->value;
+        else if (tmp->value > minmax && mode == 10)
+            minmax = tmp->value;
         tmp = tmp->link;
     }
-    return (min);
+    return (minmax);
 }
 
 void    ft_sort_rank(t_link *num)
@@ -48,7 +62,7 @@ void    ft_sort_rank(t_link *num)
 
     rank = 1;
     tmp = num;
-    min = ft_rank_min(tmp);
+    min = ft_rank_minmax(tmp, 0);
     while (tmp)
     {
         if (tmp->value == min)
