@@ -6,7 +6,7 @@
 /*   By: tsirirak <tsirirak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 21:46:06 by tsirirak          #+#    #+#             */
-/*   Updated: 2023/02/19 19:27:12 by tsirirak         ###   ########.fr       */
+/*   Updated: 2023/02/19 22:50:54 by tsirirak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,19 @@ t_link *sprit(int argc, char **argv)//2
 	return (first);
 }
 
+// void 	debug_link(t_link *head)
+// {
+// 	t_link *tmp;
 
+// 	if (!head)
+// 		return;
+// 	tmp = head;
+// 	while (tmp)
+// 	{
+// 		printf("%d ->", tmp->rank);
+// 		tmp = tmp->link;
+// 	}
+// }
 
 int main(int argc, char **argv)//1
 {
@@ -63,32 +75,17 @@ int main(int argc, char **argv)//1
 		printf("argc < 2");
 		return (0);
 	}
+	
 	a = sprit(argc, argv);
-	tmp = a;
+
 	a->count = 1;
-	printf("a->count = %d\n", a->count);
 	if (check_dididigit(a) == 1)
 	{
 		printf("check_dididigit\n");
 		exit(1);
 	}
-	printf("a->count = %d\n",a->count);
-	printf("--------\n");
-	
-	printf("hello\n");
-	
-	// while (tmp != NULL)
-	// {
-	// 	printf("rank = %d\n",tmp->rank);
-	// 	tmp = tmp->link;
-	// }
-	// while (a != NULL)
-	// {
-	// 	printf("value = %d\n",a->value);
-	// 	a = a->link;
-	// }
-	ft_assign(a, 4, 3);
-	
+	ft_assign_rank(a);
+	tmp = a;
 	print_list(tmp);
 	while (a) // a!=NULL
 	{
@@ -108,8 +105,7 @@ void	print_list(t_link *lst)
 	tmp = lst;
 	while (tmp != NULL)
 	{
-		printf("rank = %d\n",tmp->rank);
-		printf("value = %d\n",tmp->value);
+		printf("rank = %d value %d\n",tmp->rank ,tmp->value);
 		tmp = tmp->link;
 	}
 }

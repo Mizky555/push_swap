@@ -26,7 +26,7 @@ int find_max(t_link *num)
     max = tmp->value;
     while (tmp)
     {
-        if (tmp->value < max)
+        if (tmp->value > max)
             max = tmp->value;
         tmp = tmp->link;
     }
@@ -36,52 +36,56 @@ int find_max(t_link *num)
 int find_next_min(t_link *num, int min)
 {
 	int		nextmin;
+    t_link  *tmp;
 
+    tmp = num;
 	nextmin = find_max(num);
-	while (num)
+	while (tmp)
 	{
-		if (num->value > min && num->value < nextmin)
+		if (tmp->value > min && tmp->value < nextmin)
 		{
-			nextmin = num->value;
+			nextmin = tmp->value;
 		}
-		num = num->link;
+		tmp = tmp->link;
 	}
 	return (nextmin);
 }
 
-void    ft_sort_rank(t_link *num)
+
+void    ft_assign_rank(t_link *num)
 {
-    t_link  *tmp;
+    t_link *tmp;
     int index;
     int min;
 
-    index = 0;
     tmp = num;
+    index = 1;
     min = find_min(tmp);
-    while (tmp)
+    ft_assign(tmp, min, index);
+    index = index + 1;
+    while (index <= tmp->count)
     {
-        ft_assign(tmp, min, index);
         min = find_next_min(tmp, min);
-        index++;
-        tmp = tmp->link;
+        ft_assign(tmp, min, index);
+        index = index + 1;
     }
 }
 
 
 
-void	*ft_assign(t_link *num,int value, int index)
+void	ft_assign(t_link *num,int value, int index)//ใส่ค่า index เข้าไปใน tmp->rank
 {
     t_link  *tmp;
 
+    tmp = num;
     while (tmp)    
     {
         if (tmp->value == value)
         {
-            tmp = num;
             tmp->rank = index;
+            return ;
         }
-        else
-            tmp = tmp->link;
+        tmp = tmp->link;
     }
 }
 

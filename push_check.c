@@ -3,11 +3,6 @@
 
 int	check_dididigit(t_link *num)//6
 {
-	// while (a != NULL)
-	// {
-	// 	printf("%d\n",a->value);
-	// 	a = a->link;
-	// }
     t_link *num_run;
 	printf("Hello\n");
 	while (num != NULL)
@@ -21,7 +16,7 @@ int	check_dididigit(t_link *num)//6
                 return (1);
 
             }
-			num->count++;//oppalllll
+			num->count++;
             num_run = num_run->link;
 		}
         num = num->link;
