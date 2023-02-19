@@ -6,7 +6,7 @@
 /*   By: tsirirak <tsirirak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 21:46:06 by tsirirak          #+#    #+#             */
-/*   Updated: 2023/02/19 22:50:54 by tsirirak         ###   ########.fr       */
+/*   Updated: 2023/02/20 02:34:55 by tsirirak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ t_link *sprit(int argc, char **argv)//2
 int main(int argc, char **argv)//1
 {
 	t_link	*a;
+	t_link	*b;
 	t_link *tmp;
 	
 	if (argc < 2)
@@ -86,7 +87,19 @@ int main(int argc, char **argv)//1
 	}
 	ft_assign_rank(a);
 	tmp = a;
+	printf("--a--\n");
 	print_list(tmp);
+	tmp = b;
+	printf("--b--\n");
+	print_list(tmp);
+	// ft_sa(&a);
+	// ft_ra(&a);
+	// ft_rra(&a);
+	ft_pb(&a,&b);
+	printf("\n\n-----A----\n");
+	print_list(a);
+	printf("-----B----\n");
+	print_list(b);
 	while (a) // a!=NULL
 	{
 		tmp = a;
