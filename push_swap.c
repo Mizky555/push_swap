@@ -6,7 +6,7 @@
 /*   By: tsirirak <tsirirak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 21:46:06 by tsirirak          #+#    #+#             */
-/*   Updated: 2023/02/19 00:54:12 by tsirirak         ###   ########.fr       */
+/*   Updated: 2023/02/19 19:27:12 by tsirirak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ int main(int argc, char **argv)//1
 		return (0);
 	}
 	a = sprit(argc, argv);
-	a->count = 1;//opallllll
+	tmp = a;
+	a->count = 1;
 	printf("a->count = %d\n", a->count);
 	if (check_dididigit(a) == 1)
 	{
@@ -72,24 +73,44 @@ int main(int argc, char **argv)//1
 		exit(1);
 	}
 	printf("a->count = %d\n",a->count);
-	ft_sort_rank(a);
-	tmp = a;
 	printf("--------\n");
-	while (tmp != NULL)
-	{
-		printf("rank = %d\n",tmp->rank);
-		tmp = tmp->link;
-	}
-	while (a != NULL)
-	{
-		printf("value = %d\n",a->value);
-		a = a->link;
-	}
+	
+	printf("hello\n");
+	
+	// while (tmp != NULL)
+	// {
+	// 	printf("rank = %d\n",tmp->rank);
+	// 	tmp = tmp->link;
+	// }
+	// while (a != NULL)
+	// {
+	// 	printf("value = %d\n",a->value);
+	// 	a = a->link;
+	// }
+	ft_assign(a, 4, 3);
+	
+	print_list(tmp);
 	while (a) // a!=NULL
 	{
 		tmp = a;
 		a = a->link;
 		free(tmp);
+	}
+}
+
+
+//  4 1 3 2
+//  3 0 0 0
+void	print_list(t_link *lst)
+{
+	t_link *tmp;
+
+	tmp = lst;
+	while (tmp != NULL)
+	{
+		printf("rank = %d\n",tmp->rank);
+		printf("value = %d\n",tmp->value);
+		tmp = tmp->link;
 	}
 }
 
