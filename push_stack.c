@@ -15,7 +15,6 @@ void	ft_add_tail(t_link **mom, t_link *son) //5 มาจาก libftbonus
 {
 	t_link	*tmp;
 
-
 	if (mom != NULL && son != NULL)
 	{
 		if (*mom == NULL)

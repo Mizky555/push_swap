@@ -4,7 +4,7 @@
 # include "./libft/libft.h"
 #include "push.h"
 
-void ft_sa(t_link **a)
+void ft_sa(t_link **a)//
 {
     t_link *tmp;
 
@@ -32,7 +32,7 @@ void ft_ss(t_link **a, t_link **b)
     ft_sb(b);
 }
 
-void    ft_ra(t_link **a)
+void    ft_ra(t_link **a)//
 {
     t_link *tmp;
     t_link *last;
@@ -62,7 +62,7 @@ void    ft_rr(t_link **a, t_link **b)
     ft_rb(b);
 }
 
-void    ft_rra(t_link **a)
+void    ft_rra(t_link **a)//
 {
     t_link *tmp;
     t_link *last;
@@ -96,15 +96,42 @@ void    ft_rrr(t_link **a, t_link **b)
     ft_rrb(b);
 }
 
-void    ft_pb(t_link **a,t_link **b
-)
+void    ft_pb(t_link **a,t_link **b)//
 {
-    t_link *tmp;
+	t_link	*tmp;
 
-    tmp = (*a);
-    (*a) = (*a)->link;
-    (*b) = tmp;
-    tmp->link = NULL;
+    if (*b)
+    {
+        tmp = *a;
+        *a = (*a)->link;
+        tmp->link = *b;
+        *b = tmp;
+    }
+    else
+    {
+        *b = *a;
+        *a = (*a)->link;
+        (*b)->link = NULL;
+    }
+}
+
+void    ft_pa(t_link **a,t_link **b)//
+{
+	t_link	*tmp;
+
+    if (*a)
+    {
+        tmp = *b;
+        *b = (*b)->link;
+        tmp->link = *a;
+        *a = tmp;
+    }
+    else
+    {
+        *a = *b;
+        *b = (*b)->link;
+        (*a)->link = NULL;
+    }
 }
 
 t_link  *ft_before_last_link(t_link *a)

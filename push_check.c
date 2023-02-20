@@ -4,7 +4,6 @@
 int	check_dididigit(t_link *num)//6
 {
     t_link *num_run;
-	printf("Hello\n");
 	while (num != NULL)
 	{
         num_run = num->link;
@@ -46,4 +45,36 @@ int	check_digit(char *str)//3
 		i++;
 	}
 	return (1);
+}
+
+int	check_count(t_link *num)
+{
+	t_link *tmp;
+	int count;
+
+	tmp = num;
+	count = 0;
+	while (tmp)
+	{
+		count++;
+		tmp = tmp->link;
+	}
+	return (count);
+}
+
+int	check_sort(t_link *num)
+{
+	t_link	*tmp;
+	int	i;
+
+	i = 1;
+	tmp = num;
+	while (tmp)
+	{
+		if (tmp->rank != i)//ยังไม่เรียง
+			return (0);
+		tmp = tmp->link;
+		i++;
+	}
+	return (1);//เรียงแล้ว
 }

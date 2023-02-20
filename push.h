@@ -6,7 +6,7 @@
 /*   By: tsirirak <tsirirak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 21:46:55 by tsirirak          #+#    #+#             */
-/*   Updated: 2023/02/20 02:44:50 by tsirirak         ###   ########.fr       */
+/*   Updated: 2023/02/21 02:23:37 by tsirirak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int	find_next_min(t_link *next, int min);
 void	ft_assign(t_link *num,int value, int index);
 void	print_list(t_link *lst);
 void    ft_assign_rank(t_link *num);
+int	check_sort(t_link *num);
+int	check_count(t_link *num);
 
 t_link    *ft_last_link(t_link *a);
 t_link  *ft_before_last_link(t_link *a);
@@ -47,9 +49,17 @@ void ft_sa(t_link **a);
 void    ft_ra(t_link **a);
 void    ft_rra(t_link **a);
 void    ft_pb(t_link **a,t_link **b);
+void    ft_pa(t_link **a,t_link **b);
 void ft_sb(t_link **b);
 void    ft_rb(t_link **b);
 void    ft_rrb(t_link **b);
+void ft_sb(t_link **b);
+void ft_ss(t_link **a, t_link **b);
+void    ft_rr(t_link **a, t_link **b);
+void    ft_rrr(t_link **a, t_link **b);
+
+void    ft_sort(t_link **a, t_link **b);
+int	check_sort(t_link *num);
 
 // typedef struct s_link
 // {
