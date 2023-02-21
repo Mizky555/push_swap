@@ -12,16 +12,14 @@ void    ft_sort(t_link **a, t_link **b)
     {
         
             printf("--a--\n");
-            count = check_count(*a);
             print_list(*a);
-            printf("--a--");
-            printf("count_a = %d\n",count);
-            printf("\n--b--\n");
+            count = check_count(*a);
+            printf("--a--count_a = %d\n\n",count);
+            printf("--b--\n");
             print_list(*b);
-            printf("--b--");
             count = check_count(*b);
-            printf("count_b = %d\n",count);
-
+            printf("--b--count_b = %d\n\n",count);
+            printf();
         count = check_count(*a);
         while (count > 0)
         {
