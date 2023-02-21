@@ -1,7 +1,15 @@
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include "./libft/libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_salap.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tsirirak <tsirirak@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/22 04:11:23 by tsirirak          #+#    #+#             */
+/*   Updated: 2023/02/22 04:11:23 by tsirirak         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void ft_sa(t_link **a)

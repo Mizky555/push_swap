@@ -6,7 +6,7 @@
 /*   By: tsirirak <tsirirak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 03:25:25 by tsirirak          #+#    #+#             */
-/*   Updated: 2023/02/22 03:25:29 by tsirirak         ###   ########.fr       */
+/*   Updated: 2023/02/22 03:53:24 by tsirirak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void    ft_sort_two(t_link **a);
 int find_last_pos(t_link *lst);
 int find_sec_pos(t_link *lst);
 int find_first_pos(t_link *lst);
-void    ft_sort_three(t_link **a, t_link **b);
+void    ft_sort_three(t_link **a);
 void    ft_sort_five(t_link **a,t_link **b);
 // typedef struct s_link
 // {

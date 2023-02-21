@@ -6,7 +6,7 @@
 /*   By: tsirirak <tsirirak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 21:46:06 by tsirirak          #+#    #+#             */
-/*   Updated: 2023/02/22 03:44:29 by tsirirak         ###   ########.fr       */
+/*   Updated: 2023/02/22 05:06:29 by tsirirak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ int main(int argc, char **argv)//1
 	t_link	*b;
 	t_link *tmp;
 	
+	(void)b;
+	
 	if (argc < 2)
 	{
 		printf("argc < 2");
@@ -88,8 +90,10 @@ int main(int argc, char **argv)//1
 
 	if (check_sort(a) == 1)
 		return (0);
+	// ft_sort_three(&a);
+	
 	ft_sort_five(&a,&b);
-	print_list(a);
+	// print_list(a);
 	// ft_sort(&a,&b);
 
 	while (a) // a!=NULL
