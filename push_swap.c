@@ -6,14 +6,12 @@
 /*   By: tsirirak <tsirirak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 21:46:06 by tsirirak          #+#    #+#             */
-/*   Updated: 2023/02/21 03:40:26 by tsirirak         ###   ########.fr       */
+/*   Updated: 2023/02/22 03:44:29 by tsirirak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "push.h"
-
-
+#include "push_swap.h"
 
 t_link *sprit(int argc, char **argv)//2
 {
@@ -87,10 +85,13 @@ int main(int argc, char **argv)//1
 	}
 	
 	ft_assign_rank(a);
-	ft_sort(&a,&b);
-	printf("--------\n");
+
+	if (check_sort(a) == 1)
+		return (0);
+	ft_sort_five(&a,&b);
 	print_list(a);
-	printf("--------\n");
+	// ft_sort(&a,&b);
+
 	while (a) // a!=NULL
 	{
 		tmp = a;

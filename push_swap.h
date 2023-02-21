@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsirirak <tsirirak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 20:41:58 by tsirirak          #+#    #+#             */
-/*   Updated: 2023/01/29 20:33:15 by tsirirak         ###   ########.fr       */
+/*   Created: 2023/02/22 03:25:25 by tsirirak          #+#    #+#             */
+/*   Updated: 2023/02/22 03:25:29 by tsirirak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,30 +18,65 @@
 # include <stdio.h>
 # include "./libft/libft.h"
 
-typedef struct s_list
+typedef struct s_link
 {
-	int	num;
-	struct s_list *next;
-} t_list;
+	int	value;
+	int	rank;
+	int	count;//opallllllll
+	struct	s_link *link;
+} t_link;
 
-typedef struct s_main
-{
-	char ***str;
-	t_list *a;
-	t_list *b;
-} t_main;
 
-typedef struct node //ชื่อเต็ม struct node
-{
-	int value; //1.ค่า
-	struct node *link; //2.link
-} NODE;
+t_link *ft_new_box(int num);
+void	ft_add_tail(t_link **mom, t_link *son);
+void    ft_sort_rank(t_link *num);
+int ft_rank_minmax(t_link *num, int mode);
+int ft_rank_morethan_min(t_link *num, int min);
+int	check_digit(char *str);
+int	check_dididigit(t_link *a);
+int find_min(t_link *num);
+int find_max(t_link *num);
+int	find_next_min(t_link *next, int min);
+void	ft_assign(t_link *num,int value, int index);
+void	print_list(t_link *lst);
+void    ft_assign_rank(t_link *num);
+int	check_sort(t_link *num);
+int	check_count(t_link *num);
 
-void	create(int gc, char **gv, t_main *m);
-t_list	*first_linkedlist(int i);
-void	c(t_main *m);
-void	next_linkedlist(int i, t_main *h);
-// void	check_type(t_ps *s,char **gv);
+t_link    *ft_last_link(t_link *a);
+t_link  *ft_before_last_link(t_link *a);
+void ft_sa(t_link **a);
+void    ft_ra(t_link **a);
+void    ft_rra(t_link **a);
+void    ft_pb(t_link **a,t_link **b);
+void    ft_pa(t_link **a,t_link **b);
+void ft_sb(t_link **b);
+void    ft_rb(t_link **b);
+void    ft_rrb(t_link **b);
+void ft_sb(t_link **b);
+void ft_ss(t_link **a, t_link **b);
+void    ft_rr(t_link **a, t_link **b);
+void    ft_rrr(t_link **a, t_link **b);
 
+void    ft_sort(t_link **a, t_link **b);
+int	check_sort(t_link *num);
+void    ft_sort_two(t_link **a);
+int find_last_pos(t_link *lst);
+int find_sec_pos(t_link *lst);
+int find_first_pos(t_link *lst);
+void    ft_sort_three(t_link **a, t_link **b);
+void    ft_sort_five(t_link **a,t_link **b);
+// typedef struct s_link
+// {
+// 	int	value;
+// 	struct s_link *link;
+// } t_link;
+
+// typedef struct s_main
+// {
+// 	char	***num_str;
+// 	t_link *link_a;
+// 	t_link *link_b;
+// } t_main;
 
 #endif

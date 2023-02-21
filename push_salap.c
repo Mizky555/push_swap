@@ -2,9 +2,9 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include "./libft/libft.h"
-#include "push.h"
+#include "push_swap.h"
 
-void ft_sa(t_link **a)//
+void ft_sa(t_link **a)
 {
     t_link *tmp;
 
@@ -12,7 +12,7 @@ void ft_sa(t_link **a)//
     (*a) = (*a)->link;
     tmp->link = tmp->link->link;
     (*a)->link = tmp;
-    print_list(*a);
+    ft_putendl_fd("sa", 1);
 }
 
 void ft_sb(t_link **b)
@@ -23,46 +23,50 @@ void ft_sb(t_link **b)
     (*b) = (*b)->link;
     tmp->link = tmp->link->link;
     (*b)->link = tmp;
-    print_list(*b);
+    ft_putendl_fd("sb", 1);
 }
 
 void ft_ss(t_link **a, t_link **b)
 {
     ft_sa(a);
     ft_sb(b);
+    ft_putendl_fd("ss", 1);
 }
 
-void    ft_ra(t_link **a)//
+void    ft_ra(t_link **a)
 {
     t_link *tmp;
     t_link *last;
 
+    if ((*a)->link == NULL)
+        return;
     tmp = (*a);
     (*a) = (*a)->link;
     last = ft_last_link(*a);
     last->link = tmp;
     tmp->link = NULL;
+    ft_putendl_fd("ra", 1);
 }
+
+
 
 void    ft_rb(t_link **b)
 {
     t_link *tmp;
     t_link *last;
 
+    if ((*b)->link == NULL)
+        return;
     tmp = (*b);
     (*b) = (*b)->link;
     last = ft_last_link(*b);
     last->link = tmp;
     tmp->link = NULL;
+    ft_putendl_fd("rb", 1);
 }
 
-void    ft_rr(t_link **a, t_link **b)
-{
-    ft_ra(a);
-    ft_rb(b);
-}
 
-void    ft_rra(t_link **a)//
+void    ft_rra(t_link **a)
 {
     t_link *tmp;
     t_link *last;
@@ -74,6 +78,13 @@ void    ft_rra(t_link **a)//
     (*a) = last;
     last->link = tmp;
     before_last->link = NULL;
+    ft_putendl_fd("rra", 1);
+}
+void    ft_rr(t_link **a, t_link **b)
+{
+    ft_ra(a);
+    ft_rb(b);
+    ft_putendl_fd("rr", 1);
 }
 
 void    ft_rrb(t_link **b)
@@ -88,15 +99,17 @@ void    ft_rrb(t_link **b)
     (*b) = last;
     last->link = tmp;
     before_last->link = NULL;
+    ft_putendl_fd("rrb", 1);
 }
 
 void    ft_rrr(t_link **a, t_link **b)
 {
     ft_rra(a);
     ft_rrb(b);
+    ft_putendl_fd("rrr", 1);
 }
 
-void    ft_pb(t_link **a,t_link **b)//
+void    ft_pb(t_link **a,t_link **b)
 {
 	t_link	*tmp;
 
@@ -113,9 +126,10 @@ void    ft_pb(t_link **a,t_link **b)//
         *a = (*a)->link;
         (*b)->link = NULL;
     }
+    ft_putendl_fd("pb", 1);
 }
 
-void    ft_pa(t_link **a,t_link **b)//
+void    ft_pa(t_link **a,t_link **b)
 {
 	t_link	*tmp;
 
@@ -132,6 +146,7 @@ void    ft_pa(t_link **a,t_link **b)//
         *b = (*b)->link;
         (*a)->link = NULL;
     }
+    ft_putendl_fd("pa", 1);
 }
 
 t_link  *ft_before_last_link(t_link *a)
@@ -151,3 +166,4 @@ t_link    *ft_last_link(t_link *a)
     }
     return (a);
 }
+

@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "push.h"
+#include "push_swap.h"
 
 int find_min(t_link *num)
 {

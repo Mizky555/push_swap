@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "push.h"
+#include "push_swap.h"
 
 int	check_dididigit(t_link *num)//6
 {
@@ -11,7 +11,7 @@ int	check_dididigit(t_link *num)//6
 		{
             if (num_run->value == num->value)
             {
-                printf("----\n");
+                ft_putendl_fd("error", 2);
                 return (1);
 
             }
