@@ -57,7 +57,7 @@ int find_last_pos(t_link *lst)
 
 void	ft_sort_two(t_link **a)
 {
-	if ((*a)->value > (*a)->link->value)
+	if ((*a)->rank > (*a)->link->rank)
 		ft_sa(a);
 }
 void    ft_sort_three(t_link **a)
@@ -121,7 +121,7 @@ void    ft_sort_five(t_link **a,t_link **b)
 			ft_ra(a);
 		}
 	}
-	if ((*b)->value < (*b)->link->value)
+	if ((*b)->rank < (*b)->link->rank)
 		ft_sb(b);
 	ft_sort_three(a);
 	ft_pa(a, b);
