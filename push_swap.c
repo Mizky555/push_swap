@@ -6,7 +6,7 @@
 /*   By: tsirirak <tsirirak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 21:46:06 by tsirirak          #+#    #+#             */
-/*   Updated: 2023/02/22 05:06:29 by tsirirak         ###   ########.fr       */
+/*   Updated: 2023/02/22 15:11:50 by tsirirak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,12 +90,15 @@ int main(int argc, char **argv)//1
 
 	if (check_sort(a) == 1)
 		return (0);
+	// printf("Beforen\n");
+	// print_list(a);
 	// ft_sort_three(&a);
 	
-	ft_sort_five(&a,&b);
-	// print_list(a);
+	//  ft_sort_three(&a);
 	// ft_sort(&a,&b);
-
+	ft_sort_five(&a, &b);
+	// printf("Beforen\n");
+	// print_list(a);
 	while (a) // a!=NULL
 	{
 		tmp = a;

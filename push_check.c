@@ -32,6 +32,8 @@ int	check_digit(char *str)//3
 	i = 0;
 	a = 1;
 	num = 0;
+	if (ft_strncmp("-2147483648", str, 11))
+		return (-2147483648);
 	if (str[i] == '-')
 	{
 		a *= -1;
@@ -68,6 +70,24 @@ int	check_sort(t_link *num)
 	int	i;
 
 	i = 1;
+	tmp = num;
+	while (tmp)
+	{
+		// dprintf(2, "Rank = %d i = %d\n", tmp->rank, i);
+		if (tmp->rank != i)//ยังไม่เรียง
+			return (0);
+		tmp = tmp->link;
+		i++;
+	}
+	return (1);//เรียงแล้ว
+}
+
+int	check_sort_2(t_link *num)
+{
+	t_link	*tmp;
+	int	i;
+
+	i = 3;
 	tmp = num;
 	while (tmp)
 	{

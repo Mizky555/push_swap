@@ -38,11 +38,11 @@ void    ft_sort(t_link **a, t_link **b)
 
 int find_first_pos(t_link *lst)
 {
-	return (lst->value);
+	return (lst->rank);//value
 }
 int find_sec_pos(t_link *lst)
 {
-	return (lst->link->value);
+	return (lst->link->rank);//value
 }
 int find_last_pos(t_link *lst)
 {
@@ -50,7 +50,7 @@ int find_last_pos(t_link *lst)
 	{
 		lst = lst->link;
 		if (lst->link)
-			return (lst->link->value);
+			return (lst->link->rank);//value
 	}
 	return (0);
 }
@@ -91,7 +91,7 @@ void    ft_sort_three(t_link **a)
 	}
 }
 
-void	ft_sort_two(t_link **a, t_link **b)
+void	ft_sort_four(t_link **a, t_link **b)
 {
 	while (check_count(*a) != 3)
 	{
@@ -123,7 +123,12 @@ void    ft_sort_five(t_link **a,t_link **b)
 	}
 	if ((*b)->rank < (*b)->link->rank)
 		ft_sb(b);
-	ft_sort_three(a);
+	if (check_sort_2(*a) != 1)
+	{
+		// printf("Check a\n");
+		// print_list(*a);
+		ft_sort_three(a);
+	}
 	ft_pa(a, b);
 	ft_pa(a, b);
 }
